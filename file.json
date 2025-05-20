@@ -1,0 +1,20 @@
+{
+    "BaseModel.273343ff-84e9-4398-aff2-97e518462f09": {
+        "id": "273343ff-84e9-4398-aff2-97e518462f09",
+        "created_at": "2025-05-16T17:50:31.104681",
+        "updated_at": "2025-05-16T17:50:31.104711",
+        "__class__": "BaseModel"
+    },
+    "User.291bd2ad-dacb-4528-bf73-154c93dfed60": {
+        "id": "291bd2ad-dacb-4528-bf73-154c93dfed60",
+        "created_at": "2025-05-16T18:29:36.327158",
+        "updated_at": "2025-05-16T18:29:36.327195",
+        "__class__": "User"
+    },
+    "User.43869f69-bd54-42eb-842d-ae0da2efcf0a": {
+        "id": "43869f69-bd54-42eb-842d-ae0da2efcf0a",
+        "created_at": "2025-05-16T18:30:14.730096",
+        "updated_at": "2025-05-16T18:30:14.730119",
+        "__class__": "User"
+    }
+}
