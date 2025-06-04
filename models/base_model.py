@@ -36,3 +36,4 @@ class BaseModel:
             "created_at": datetime.isoformat(self.created_at),
             "updated_at": datetime.isoformat(self.updated_at),
         }
+
