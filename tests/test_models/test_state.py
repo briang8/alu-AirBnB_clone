@@ -17,12 +17,10 @@ class TestState(unittest.TestCase):
         state = State()
         self.assertTrue(hasattr(state, "name"))
         self.assertEqual(state.name, "")
-        
+
         # Test name assignment
         state.name = "state name"
         self.assertEqual(state.name, "state name")
-
-
 
 
 if __name__ == "__main__":

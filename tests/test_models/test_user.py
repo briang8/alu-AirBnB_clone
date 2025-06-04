@@ -27,7 +27,6 @@ class TestUser(unittest.TestCase):
         cls.filestorage = FileStorage()
         cls.user = User(email="poppy@holberton.com", password="betty98")
 
-
     @classmethod
     def tearDownClass(cls):
         """User testing teardown.
@@ -68,20 +67,19 @@ class TestUser(unittest.TestCase):
         """Test initialization."""
         self.assertIsInstance(self.user, User)
 
-
     def test_init_args_kwargs(self):
         """Test initialization with args and kwargs."""
         dt = datetime.utcnow()
         st = User("1", id="5", created_at=dt.isoformat())
         self.assertEqual(st.id, "5")
         self.assertEqual(st.created_at, dt)
-    
+
     def test_email(self):
         """Test that User has attr email, and it's an empty string"""
         user = User()
         self.assertTrue(hasattr(user, "email"))
         self.assertEqual(user.email, "")
-        
+
         # Test email assignment
         user.email = "test@example.com"
         self.assertEqual(user.email, "test@example.com")
@@ -91,7 +89,7 @@ class TestUser(unittest.TestCase):
         user = User()
         self.assertTrue(hasattr(user, "password"))
         self.assertEqual(user.password, "")
-        
+
         # Test password assignment
         user.password = "12345"
         self.assertEqual(user.password, "12345")
@@ -101,7 +99,7 @@ class TestUser(unittest.TestCase):
         user = User()
         self.assertTrue(hasattr(user, "first_name"))
         self.assertEqual(user.first_name, "")
-        
+
         # Test first_name assignment
         user.first_name = "Mohamed"
         self.assertEqual(user.first_name, "Mohamed")
@@ -111,12 +109,10 @@ class TestUser(unittest.TestCase):
         user = User()
         self.assertTrue(hasattr(user, "last_name"))
         self.assertEqual(user.last_name, "")
-        
+
         # Test last_name assignment
         user.last_name = "Dahab"
         self.assertEqual(user.last_name, "Dahab")
-
-
 
 
 if __name__ == "__main__":

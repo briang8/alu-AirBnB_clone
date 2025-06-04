@@ -17,7 +17,7 @@ class TestReview(unittest.TestCase):
         review = Review()
         self.assertTrue(hasattr(review, "place_id"))
         self.assertEqual(review.place_id, "")
-        
+
         # Test place_id assignment
         review.place_id = "review place_id"
         self.assertEqual(review.place_id, "review place_id")
@@ -27,7 +27,7 @@ class TestReview(unittest.TestCase):
         review = Review()
         self.assertTrue(hasattr(review, "user_id"))
         self.assertEqual(review.user_id, "")
-        
+
         # Test user_id assignment
         review.user_id = "review user_id"
         self.assertEqual(review.user_id, "review user_id")
@@ -37,12 +37,10 @@ class TestReview(unittest.TestCase):
         review = Review()
         self.assertTrue(hasattr(review, "text"))
         self.assertEqual(review.text, "")
-        
+
         # Test text assignment
         review.text = "review text"
         self.assertEqual(review.text, "review text")
-
-
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ class FileStorage:
         self.__objects = {}
         with open(self.__file_path, "w") as f:
             json.dump({}, f)
-    
+
     def all(self):
         return self.__objects
 
@@ -25,7 +25,7 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         from models.base_model import BaseModel
         from models.user import User
-        
+
         classes = {
             'BaseModel': BaseModel,
             'User': User
@@ -37,8 +37,9 @@ class FileStorage:
                     obj_dict = json.load(f)
                     for key, value in obj_dict.items():
                         if value['__class__'] in classes:
-                            self.__objects[key] = classes[value['__class__']](**value)
-                except:
+                            self.__objects[key] = classes[value['__class__']](
+                                **value)
+                except BaseException:
                     pass
         except FileNotFoundError:
             pass

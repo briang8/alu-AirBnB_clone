@@ -17,10 +17,11 @@ class TestAmenity(unittest.TestCase):
         amenity = Amenity()
         self.assertTrue(hasattr(amenity, "name"))
         self.assertEqual(amenity.name, "")
-        
+
         # Test name assignment
         amenity.name = "amenity name"
         self.assertEqual(amenity.name, "amenity name")
+
 
 if __name__ == "__main__":
     unittest.main()
