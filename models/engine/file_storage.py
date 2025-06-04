@@ -25,21 +25,28 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         from models.base_model import BaseModel
         from models.user import User
+        from models.amenity import Amenity
+        from models.city import City
+        from models.place import Place
+        from models.review import Review
+        from models.state import State
 
         classes = {
             'BaseModel': BaseModel,
-            'User': User
+            'User': User,
+            'Amenity': Amenity,
+            'City': City,
+            'Place': Place,
+            'Review': Review,
+            'State': State,
         }
 
         try:
             with open(self.__file_path, "r") as f:
-                try:
-                    obj_dict = json.load(f)
-                    for key, value in obj_dict.items():
-                        if value['__class__'] in classes:
-                            self.__objects[key] = classes[value['__class__']](
-                                **value)
-                except BaseException:
-                    pass
+                obj_dict = json.load(f)
+                for key, value in obj_dict.items():
+                    if value['__class__'] in classes:
+                        self.__objects[key] = classes[value['__class__']](
+                            **value)
         except FileNotFoundError:
             pass
