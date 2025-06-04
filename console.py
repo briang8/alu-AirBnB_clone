@@ -6,8 +6,21 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 
-MODELS = ["BaseModel", "User"]
+MODELS = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "City": City,
+    "Place": Place,
+    "Review": Review,
+    "State": State,
+    "Amenity": Amenity,
+}
 
 
 def validate_args(args_list):
@@ -54,11 +67,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        if cls_name == "BaseModel":
-            new_model = BaseModel()
-        elif cls_name == "User":
-            new_model = User()
-
+        new_model = MODELS[cls_name]()
         new_model.save()
         print(new_model.id)
 
@@ -109,11 +118,11 @@ class HBNBCommand(cmd.Cmd):
         if not cls:
             for obj in objects.values():
                 obj_list.append(str(obj))
-        # If class name is provided and valid, print only instances of that
-        # class
+        # If class name is provided and valid, print only
+        # instances of that class
         elif cls in MODELS:
             for key, obj in objects.items():
-                if key.split('.')[0] == cls:
+                if key.split(".")[0] == cls:
                     obj_list.append(str(obj))
         else:
             print("** class doesn't exist **")
@@ -149,14 +158,14 @@ class HBNBCommand(cmd.Cmd):
 
         # Handle the case where attribute value might contain spaces
         # Join the remaining args as the attribute value
-        attr_value = args.split(' ', 3)[3]
+        attr_value = args.split(" ", 3)[3]
 
         # Remove quotes if present
         if attr_value.startswith('"') and attr_value.endswith('"'):
             attr_value = attr_value[1:-1]
 
         # Skip update for protected attributes
-        if attr_name in ['id', 'created_at', 'updated_at']:
+        if attr_name in ["id", "created_at", "updated_at"]:
             return
 
         # Find the instance and update it
